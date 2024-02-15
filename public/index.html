@@ -1,52 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Page</title>
     <link rel="stylesheet" href="tailwindstyle.css" >
 </head>
-<body>
+<body class="bg-white dark:bg-gray-800">
+    <nav class=" justify-end px-2 py-2">
+        <label class="text-blue-600 dark:text-white font-mono">Light</label>
+        <input type="checkbox" id="hs-basic-usage" class="relative w-[4.75rem] h-7
+        bg-gray-100 border-transparent text-transparent 
+        rounded-full cursor-pointer transition-colors ease-in-out duration-200
+        focus:ring-blue-600 disabled:opacity-50 disabled:pointer-events-none checked:bg-none 
+        checked:text-blue-600 checked:border-blue-600 focus:checked:border-blue-600 
+        before:inline-block before:size-6 before:bg-white 
+        checked:before:bg-blue-200 before:translate-x-0 checked:before:translate-x-full before:rounded-full 
+        before:shadow before:transform before:ring-0 before:transition before:ease-in-out before:duration-200 
+        ">
+        <!-- dark:before:bg-gray-400 dark:checked:before:bg-blue-200 dark:focus:ring-offset-gray-600 
+        dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 
+        -->
+        <label class="text-blue-600 dark:text-white">Dark</label>
+        <label for="hs-basic-usage" class="sr-only font-mono">switch</label>
+    </nav>
     <div class="flex justify-center">
         <div class="wrapper">
             <h1 class="font-bold text-red-500 text-4xl font-mono">Finance Log</h1>
             <ul class="item-list">
-
             </ul>
         </div>
     </div>
 
     <footer>
         <div class="flex justify-center px-4 py-4">
-            <form class="new-item-form">
-                <div class="field px-4 py-4">
-                    <label class="font-mono text-violet-300">Type:</label>
+            <form id="form" class="new-item-form">
+                <div class="field px-2 py-2">
+                    <label class="font-mono text-violet-300 dark:text-white">Type:</label>
                     <select name="type" id="type" class="border-2 rounded border-zinc-500">
-                        <option value="invoice" class="font-mono">Invoice</option>
-                        <option value="payment" class="font-mono">Payment</option>
+                        <option value="Invoice" class="font-mono">Invoice</option>
+                        <option value="Payment" class="font-mono">Payment</option>
                     </select>
                 </div>
 
-                <div class="field px-4 py-4">
-                    <label class="font-mono">To / From:</label>
+                <div class="field px-2 py-2">
+                    <label class="font-mono text-cyan-600 dark:text-white">To/From:</label>
                     <input type="text" id="tofrom" class="border-2 rounded border-zinc-500 text-center">
                 </div>
 
-                <div class="field px-4 py-4">
-                    <label class="font-mono">Details:</label>
+                <div class="field px-2 py-2">
+                    <label class="font-mono dark:text-white">Details:</label>
                     <input type="text" id="details" class="border-2 rounded border-zinc-500 text-center">
                 </div>
 
-                <div class="field px-4 py-4">
-                    <label class="font-mono">Amount($):</label>
+                <div class="field px-2 py-2">
+                    <label class="font-mono dark:text-white">Amount($):</label>
                     <input type="number" id="amount" class="border-2 rounded border-zinc-500 text-center">
                 </div>
-                <div class="flex justify-center px-4 py-4">
+                <div class="flex justify-center px-2 py-2">
                     <button class="text-white bg-sky-300 hover:text-red-500 border-2 rounded-md w-16 border-sky-500 font-mono">Add</button>
                 </div>
             </form>
         </div>
+
+        <div class="flex justify-center px-4 py-4">
+            <article class="text-pretty font-mono dark:text-white">
+                <h3 class="underline underline-offset-2">Introduction</h3>
+                <p>This is a article for practicing Typescript for me.<br>
+                    You can use this application to list out your spend or the money you receive.
+                </p>
+            </article>
+        </div>
+
+        <div class="flex justify-center px-4 py-4">
+            <a href="https://google.com/" class="text-sky-500 underline underline-offset-4 decoration-sky-500 hover:uppercase">This is google!</a>
+        </div>
+        
     </footer>
-    <script src="sandbox.js"></script>
+    <script src="app.js"></script>
+
 </body>
 </html>
