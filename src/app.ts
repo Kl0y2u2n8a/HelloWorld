@@ -1,34 +1,7 @@
-class invoice{
-    client: string;
-    detail: string;
-    amount: number;
-
-    constructor(c:string, d:string, a:number) {
-        this.client = c;
-        this.detail = d;
-        this.amount = a;
-    }
-
-    print(){
-        return this.client +' owes ￥'+ this.amount +' for ' + this.detail;
-    }
-}
-
-class payment{
-    client: string;
-    detail: string;
-    amount: number;
-
-    constructor(c:string, d:string, a:number) {
-        this.client = c;
-        this.detail = d;
-        this.amount = a;
-    }
-
-    print(){
-        return this.client +' pay ￥'+ this.amount +' for ' + this.detail;
-    }
-}
+import { hasFormat } from './interface/hasFormat.js';
+import { listTemplate } from './classes/listTemplate.js';
+import { payment } from './classes/payment.js';
+import { invoice } from './classes/invoice.js';
 
 const form = document.querySelector("#form") as HTMLFormElement;
 
@@ -37,15 +10,19 @@ const tofrom = document.querySelector("#tofrom") as HTMLInputElement;
 const details = document.querySelector("#details") as HTMLInputElement;
 const amount = document.querySelector("#amount") as HTMLInputElement;
 
+const ul = document.querySelector('ul')!;
+const list = new listTemplate(ul);
+
 form.addEventListener("submit", (e: Event) =>{
     e.preventDefault();
     
+    let docu : hasFormat;
     if(type.value === "Invoice" && tofrom.value!="" && details.value!="" && amount.value!=""){
-        const inv = new invoice(tofrom.value, details.value, amount.valueAsNumber);
-        console.log(inv.print());
+        docu = new invoice(tofrom.value, details.value, amount.valueAsNumber);
     }
-    else if(type.value === "Payment" && tofrom.value!="" && details.value!="" && amount.value!=""){
-        const pm = new payment(tofrom.value, details.value, amount.valueAsNumber);
-        console.log(pm.print());
+    else{
+        docu = new payment(tofrom.value, details.value, amount.valueAsNumber);
     }
+
+    list.render(docu,type.value, 'end');
 });
