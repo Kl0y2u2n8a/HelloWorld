@@ -1,18 +1,18 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const listTemplate_js_1 = require("./classes/listTemplate.js");
-const payment_js_1 = require("./classes/payment.js");
-const invoice_js_1 = require("./classes/invoice.js");
-const form = document.querySelector("#form");
-const type = document.querySelector("#type");
-const tofrom = document.querySelector("#tofrom");
-const details = document.querySelector("#details");
-const amount = document.querySelector("#amount");
-const ul = document.querySelector('ul');
-const list = new listTemplate_js_1.listTemplate(ul);
-form.addEventListener("submit", (e) => {
+var listTemplate_js_1 = require("./classes/listTemplate.js");
+var payment_js_1 = require("./classes/payment.js");
+var invoice_js_1 = require("./classes/invoice.js");
+var form = document.querySelector("#form");
+var type = document.querySelector("#type");
+var tofrom = document.querySelector("#tofrom");
+var details = document.querySelector("#details");
+var amount = document.querySelector("#amount");
+var ul = document.querySelector('ul');
+var list = new listTemplate_js_1.listTemplate(ul);
+form.addEventListener("submit", function (e) {
     e.preventDefault();
-    let docu;
+    var docu;
     if (type.value === "Invoice" && tofrom.value != "" && details.value != "" && amount.value != "") {
         docu = new invoice_js_1.invoice(tofrom.value, details.value, amount.valueAsNumber);
     }

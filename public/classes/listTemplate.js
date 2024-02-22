@@ -1,16 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.listTemplate = void 0;
-class listTemplate {
-    constructor(container) {
+var listTemplate = /** @class */ (function () {
+    function listTemplate(container) {
         this.container = container;
     }
-    render(item, heading, pos) {
-        const li = document.createElement('li');
-        const h4 = document.createElement('h4');
+    listTemplate.prototype.render = function (item, heading, pos) {
+        var li = document.createElement('li');
+        var h4 = document.createElement('h4');
         h4.innerText = heading;
         li.append(h4);
-        const p = document.createElement('p');
+        var p = document.createElement('p');
         p.innerText = item.format();
         li.append(p);
         if (pos === 'start') {
@@ -21,6 +21,7 @@ class listTemplate {
             this.container.append(li);
             console.log('end: ' + item.format());
         }
-    }
-}
+    };
+    return listTemplate;
+}());
 exports.listTemplate = listTemplate;
